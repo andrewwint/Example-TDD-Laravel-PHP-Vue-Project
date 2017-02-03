@@ -16,8 +16,8 @@ class ClusterValuesController extends Controller
      */
     public function index(ClusterValue $clusterValue)
     {
-        $clusters = $clusterValue->find(1);
-        return view('clustervalues')->with('d', $clusters);
+      $clusters = $clusterValue->find(1);
+      return view('clustervalues')->with('d', $clusters);
     }
 
     /**

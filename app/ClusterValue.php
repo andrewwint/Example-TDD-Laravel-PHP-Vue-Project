@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Traits\SegmentUser;
 use Illuminate\Database\Eloquent\Model;
 
 class ClusterValue extends Model
 {
+
+    use SegmentUser;
 
     protected $fillable = [
                            'd1_married_couple_family',
