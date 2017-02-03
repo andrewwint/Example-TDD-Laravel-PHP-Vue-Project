@@ -1,6 +1,16 @@
 # customer-benefits-analytics-admin
 Admin tool built using Laravel 5.4 and Vue.js 2.0 for managing Customer Benefits Analytics business logic
 
+## Getting Started
+
+### Requirements
+* Php 5.6 or greater `$a ** $b` Exponentiation is now supported and needed for segmentation calculation
+* MySQL
+* Node.js
+* Composer - PHP Package Manager
+* Webpack - Frontend Module Builder
+
+Once you have cloned the application `cd` to `customer-benefits-analytics-admin` and run the following commands.
 ```comandline
 composer update
 ```
