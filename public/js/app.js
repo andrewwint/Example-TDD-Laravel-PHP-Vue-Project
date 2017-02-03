@@ -20772,6 +20772,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -20797,6 +20798,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       type: String,
       required: true
     }
+
   },
 
   data: function data() {
@@ -20804,7 +20806,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       error: false,
       succes: false,
       message: '',
-      newvalue: ''
+      newvalue: '',
+      value_to_process: ''
     };
   },
 
@@ -20813,23 +20816,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     updateclustervalue: function updateclustervalue() {
       var _this = this;
 
-      console.log(this.$refs.input.value, this.columnname, this.id);
+      if (this.newvalue == '') {
+        this.value_to_process = this.$refs.input.value;
+      } else {
+        this.value_to_process = this.$refs.updatedinput.value;
+      }
+      console.log(this.value_to_process, this.columnname, this.id);
+
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('clustervalues/update', {
         id: this.id,
         name: this.columnname,
-        value: this.$refs.input.value
+        value: this.value_to_process
       }).then(function (response) {
         console.log(response.data.status);
 
         if (response.data.status == "sucess") {
           _this.succes = true;
           _this.error = false;
-          __WEBPACK_IMPORTED_MODULE_1_vue___default.a.set({}, _this.value, response.data.value);
+          _this.newvalue = response.data.value;
         } else {
           _this.error = true;
           _this.succes = false;
           _this.message = response.data.message;
         }
+        var self = _this;
+        setTimeout(function () {
+          self.succes = false;
+          self.error = false;
+          self.message = null;
+        }, 5000);
       }).catch(function (error) {
         return console.log(error);
       });
@@ -40462,11 +40477,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c('div', {
     staticClass: "form-inline"
   }, [(_vm.error) ? _c('div', {
-    staticClass: "alert alert-warning alert-dismissible",
+    staticClass: "alert alert-danger alert-dismissible",
     attrs: {
       "role": "alert"
     }
-  }, [_vm._m(0), _vm._v(" "), _c('strong', [_vm._v("Warning!")]), _vm._v(" " + _vm._s(_vm.message) + "\n     ")]) : _vm._e(), _vm._v(" "), _c('input', {
+  }, [_vm._m(0), _vm._v(" "), _c('strong', [_vm._v("Warning!")]), _vm._v(" " + _vm._s(_vm.message) + "\n      ")]) : _vm._e(), _vm._v(" "), (this.newvalue == '') ? _c('input', {
     ref: "input",
     staticClass: "form-control ",
     attrs: {
@@ -40476,6 +40491,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     },
     domProps: {
       "value": _vm.value
+    }
+  }) : _c('input', {
+    ref: "updatedinput",
+    staticClass: "form-control ",
+    attrs: {
+      "type": "text",
+      "name": _vm.columnname,
+      "id": _vm.columnname
+    },
+    domProps: {
+      "value": this.newvalue
     }
   }), _vm._v(" "), _c('button', {
     staticClass: "btn btn-primary",
@@ -40487,7 +40513,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.updateclustervalue()
       }
     }
-  }, [_vm._v("\n        Update\n     ")])])])
+  }, [_vm._v("\n      Update\n    ")])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('button', {
     staticClass: "close",
