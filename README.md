@@ -29,17 +29,25 @@ php artisan migrate:refresh --seed
 
 ## Vue.js Frontend
 ### Requirements
-Node.js and Webpack
+Node.js and Webpack are required for to compile files in `/resources/assets` to  `/public/*` see `webpack.mix.js` for details.
 
 ```
 sudo npm install --global webpack
 ```
 ### Build and Watch
-Webpack is required for to compile files in `/resources/assets` to  `/public/*` see `webpack.mix.js` for details.
+Run the following commands to compile your development files in `/resources/assets`
 
 ```
 npm install
 npm run watch
+```
+
+## Launching Application - localhost
+Running the at `http://127.0.0.1:8000`
+
+```
+php artisan serve
+Laravel development server started: <http://127.0.0.1:8000>
 ```
 
 ## Unit Tests
