@@ -68,7 +68,7 @@ export default {
       }
       console.log(this.value_to_process, this.columnname, this.id);
 
-      axios.post('clustervalues/update', {
+      axios.post('/api/clustervalues/update', {
         id: this.id,
         name: this.columnname,
         value: this.value_to_process,

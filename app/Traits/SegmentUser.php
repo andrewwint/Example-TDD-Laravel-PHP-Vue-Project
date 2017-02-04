@@ -12,6 +12,8 @@ trait SegmentUser
 
   private $pervious_segment;
 
+  private $segment;
+
   private $median_family_household_income; //CAPE: INC: HH: MEDIAN FAMILY HOUSEHOLD INCOME
 
   private $median_education_attained; //CAPE: EDUC: POP25+: MEDIAN EDUCATION ATTAINED
@@ -54,7 +56,7 @@ trait SegmentUser
 
   private $d5_mfirst; //D5_MFIRST
 
-  public $clusters;
+  public $clusters; //inherited from ClusterValue Model
 
   /**
   *  @param int: $cluster_values_id id in database table `cluster_values`.`id`
@@ -310,6 +312,12 @@ trait SegmentUser
       }
 
       return $columns;
+    }
+
+
+    public function getUserSegmentNumber()
+    {
+      return $this->segment;
     }
 
     /**

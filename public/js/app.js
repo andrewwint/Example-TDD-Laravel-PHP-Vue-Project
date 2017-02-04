@@ -20730,7 +20730,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     fetchClusterValues: function fetchClusterValues() {
       var _this = this;
 
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('clustervalues/d/' + this.segmentcluster).then(function (response) {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/clustervalues/d/' + this.segmentcluster).then(function (response) {
         _this.items = response.data;
       }).catch(function (error) {
         return console.log(error);
@@ -20823,7 +20823,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
       console.log(this.value_to_process, this.columnname, this.id);
 
-      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('clustervalues/update', {
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/clustervalues/update', {
         id: this.id,
         name: this.columnname,
         value: this.value_to_process

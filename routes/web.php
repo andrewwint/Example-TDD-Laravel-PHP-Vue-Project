@@ -24,16 +24,20 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'ClusterValuesController@index',
         'as' => 'clustervalues'
     ]);
-    Route::get('/clustervalues/d/{d}', [
+
+    //TODO: Refactor to use Passport
+    Route::get('/api/clustervalues/d/{d}', [
         'uses' => 'ClusterValuesController@getBySegment',
-        'as' => 'clustervaluessegment'
+        'as' => 'clustervaluessegment',
+        'middleware' => 'api'
     ]);
 
-    Route::post('/clustervalues/update', [
+    //TODO: Refactor to use Passport
+    Route::post('/api/clustervalues/update', [
         'uses' => 'ClusterValuesController@update',
-        'as' => 'clustervaluesupdate'
+        'as' => 'clustervaluesupdate',
+        'middleware' => 'api'
     ]);
-
 
     Route::get('/messages', [
         'uses' => 'HomeController@messages',

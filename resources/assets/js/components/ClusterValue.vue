@@ -36,7 +36,7 @@
 
       methods: {
         fetchClusterValues: function () {
-          axios.get('clustervalues/d/'+this.segmentcluster)
+          axios.get('/api/clustervalues/d/'+this.segmentcluster)
               .then(response=>{
               this.items = response.data;
             }).catch(error =>console.log(error))
