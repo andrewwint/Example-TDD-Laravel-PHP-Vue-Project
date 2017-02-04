@@ -83,20 +83,23 @@ trait SegmentUser
     $clusterValue = new ClusterValue();
     $this->clusters = $clusterValue->find($cluster_values_id);
 
-    $this->setMedianFamilyHouseholdIncome($args_array["MedianFamilyHouseholdIncome"]);
-    $this->setMedianEductionAttained($args_array["MedianEductionAttained"]);
-    $this->setMarriedCoupleFamily($args_array["MarriedCoupleFamily"]);
-    $this->setChildHHWithPersons($args_array["MedianFamilyHouseholdIncome"]);
-    $this->setMedianHomeValue($args_array["ChildHHWithPersons"]);
-    $this->setPopHispanic($args_array["PopHispanic"]);
-    $this->setPopAsian($args_array["PopAsian"]);
-    $this->setNumberOfPersonsInUnit($args_array["NumberOfPersonsInUnit"]);
-    $this->setUrbanCountySizeCode($args_array["UrbanCountySizeCode"]);
-    $this->setLengthOfResidence($args_array["LengthOfResidence"]);
-    $this->setHomePurchaseDate($args_array["HomePurchaseDate"]);
-    $this->setEstHouseHoldIncome($args_array["EstHouseHoldIncome"]);
-    $this->setMosaicHousehold($args_array["MosaicHousehold"]);
-    $this->setCombinedHomeOwnerRenter($args_array["CombinedHomeOwnerRenter"]);
+    if(count($args_array) != 0){
+      $this->setMedianFamilyHouseholdIncome($args_array["MedianFamilyHouseholdIncome"]);
+      $this->setMedianEductionAttained($args_array["MedianEductionAttained"]);
+      $this->setMarriedCoupleFamily($args_array["MarriedCoupleFamily"]);
+      $this->setChildHHWithPersons($args_array["MedianFamilyHouseholdIncome"]);
+      $this->setMedianHomeValue($args_array["ChildHHWithPersons"]);
+      $this->setPopHispanic($args_array["PopHispanic"]);
+      $this->setPopAsian($args_array["PopAsian"]);
+      $this->setNumberOfPersonsInUnit($args_array["NumberOfPersonsInUnit"]);
+      $this->setUrbanCountySizeCode($args_array["UrbanCountySizeCode"]);
+      $this->setLengthOfResidence($args_array["LengthOfResidence"]);
+      $this->setHomePurchaseDate($args_array["HomePurchaseDate"]);
+      $this->setEstHouseHoldIncome($args_array["EstHouseHoldIncome"]);
+      $this->setMosaicHousehold($args_array["MosaicHousehold"]);
+      $this->setCombinedHomeOwnerRenter($args_array["CombinedHomeOwnerRenter"]);
+    }
+
     $this->setHomePurchaseDateConst();
     $this->setEstimatedHouseIncomeConst();
     $this->setCombnd_Mosaic_Group();

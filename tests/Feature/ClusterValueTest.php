@@ -456,7 +456,7 @@ class ClusterValueTest extends TestCase
     $this->assertStringMatchesFormat('%f', $this->clusterValue->clusters->d7_mor_home_pur_home_pur_1, $this->clusterValue->clusters->d7_mor_home_pur_home_pur_1);
   }
 
-  public function testInt()
+  public function testInt_1()
   {
     $this->clusterValue->init(1, 1, $this->args_array_1);
     $this->assertEquals(19970416, $this->clusterValue->setHomePurchaseDateConst(), 'setHomePurchaseDateConst()');
@@ -465,7 +465,10 @@ class ClusterValueTest extends TestCase
     $this->assertEquals(0, $this->clusterValue->setD1_mfirst(), 'setD5_mfirst()'); //look into
     $this->assertEquals(0, $this->clusterValue->setD5_mfirst(), 'setD5_mfirst()'); //look into
     $this->assertEquals(1, $this->clusterValue->setHomeOwnerConst(), 'setHomeOwnerConst()');
+  }
 
+  public function testInt_2()
+  {
     $this->clusterValue->init(1, 1, $this->args_array_2);
     $this->assertEquals(0, $this->clusterValue->setHomePurchaseDateConst(), 'setEstimatedHouseIncomeConst()');
     $this->assertEquals(20000, $this->clusterValue->setEstimatedHouseIncomeConst(), 'setEstimatedHouseIncomeConst()');
@@ -473,7 +476,10 @@ class ClusterValueTest extends TestCase
     $this->assertEquals(0, $this->clusterValue->setD1_mfirst(), 'setD1_mfirst()'); //look into
     $this->assertEquals(1, $this->clusterValue->setD5_mfirst(), 'setD5_mfirst()'); //look into
     $this->assertEquals(1, $this->clusterValue->setHomeOwnerConst(), 'setHomeOwnerConst()');
+  }
 
+  public function testInt_3()
+  {
     $this->clusterValue->init(1, 1, $this->args_array_3);
     $this->assertEquals(0, $this->clusterValue->setHomePurchaseDateConst(), 'setHomePurchaseDateConst()');
     $this->assertEquals(67000, $this->clusterValue->setEstimatedHouseIncomeConst(), "setEstimatedHouseIncomeConst() Nothing was set");
@@ -481,7 +487,10 @@ class ClusterValueTest extends TestCase
     $this->assertEquals(1, $this->clusterValue->setD1_mfirst(), 'setD1_mfirst()'); //look into
     $this->assertEquals(0, $this->clusterValue->setD5_mfirst(), 'setD5_mfirst()' ); //look into
     $this->assertEquals(1, $this->clusterValue->setHomeOwnerConst(), 'setHomeOwnerConst()');
+  }
 
+  public function testInt_4()
+  {
     $this->clusterValue->init(1, 1, $this->args_array_4);
     $this->assertEquals(0, $this->clusterValue->setHomePurchaseDateConst(), 'setHomePurchaseDateConst()');
     $this->assertEquals(12500, $this->clusterValue->setEstimatedHouseIncomeConst(), "setEstimatedHouseIncomeConst(), Nothing was set");
