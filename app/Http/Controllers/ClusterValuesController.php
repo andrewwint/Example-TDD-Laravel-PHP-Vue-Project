@@ -55,6 +55,8 @@ class ClusterValuesController extends Controller
   /**
   * Returns JSON data for ClustreValue.vue component
   *
+  * @param  int  $id
+  * @param  \Illuminate\Http\Request  $request
   * @param  \App\ClusterValue  $clusterValue
   * @return \Illuminate\Http\Response
   */
@@ -107,6 +109,28 @@ class ClusterValuesController extends Controller
     else
     {
       return response()->json(['status' => 'failed','value'=> $request->value,'message' => 'Update Failed Bad Characters Found']);
+    }
+  }
+
+  /**
+  * Update the specified resource in storage.
+  *
+  * @param  \Illuminate\Http\Request  $request
+  * @param  \App\ClusterValue  $clusterValue
+  * @return \Illuminate\Http\Response
+  */
+  public function score(Request $request, ClusterValue $clusterValue)
+  {
+    $clusterValue->init($request->d, $request->id, $request->args_array);
+    $score = $clusterValue->assignCluster();
+
+    if($score >= 7)
+    {
+      return response()->json(['status' => 'sucess','value' => $score, 'message' => ""] );
+    }
+    else
+    {
+      return response()->json(['status' => 'failed','value' => $score, 'message' => ""] );
     }
   }
 

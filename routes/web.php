@@ -39,6 +39,13 @@ Route::group(['middleware' => 'auth'], function(){
         'middleware' => 'api'
     ]);
 
+    //TODO: Refactor to use Passport
+    Route::post('/api/clustervalues/score', [
+        'uses' => 'ClusterValuesController@score',
+        'as' => 'clustervaluesscore',
+        'middleware' => 'api'
+    ]);
+
     Route::get('/messages', [
         'uses' => 'HomeController@messages',
         'as' => 'messages'

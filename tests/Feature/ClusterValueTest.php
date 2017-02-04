@@ -506,7 +506,10 @@ class ClusterValueTest extends TestCase
   public function testScoringTestPOST()
   {
     $user = factory(\App\User::class)->create();
-    $response = $this->actingAs($user, 'api')->post('/api/clustervalues/score',$this->args_array_1);
+    $response = $this->actingAs($user, 'api')->post('/api/clustervalues/score', ['d'=>1,
+    'id'=>1,
+    'args_array' => $this->args_array_1]
+    );
     $response->assertStatus(200);
     $response->assertJson(['status' => 'sucess']);
   }
