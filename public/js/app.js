@@ -40778,7 +40778,6 @@ module.exports = function() {
           EstHouseHoldIncome: this.items.esthouseholdincome.value,
           MosaicHousehold: this.items.mosaichousehold.value,
           CombinedHomeOwnerRenter: this.items.combinedhomeownerrenter.value
-
         }
 
       }).then(function (response) {

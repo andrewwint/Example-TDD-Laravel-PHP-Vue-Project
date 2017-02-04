@@ -100,7 +100,6 @@ export default {
           EstHouseHoldIncome: this.items.esthouseholdincome.value,
           MosaicHousehold: this.items.mosaichousehold.value,
           CombinedHomeOwnerRenter: this.items.combinedhomeownerrenter.value,
-          
         }
 
       }).then(response=>{
