@@ -322,6 +322,47 @@ trait SegmentUser
 
     /**
     *  @param int:
+    *  @example 0 to 7 as set by $this->assignCluster()
+    *  @return string:
+    */
+    public function getSegmentDescriptionByD($d=0)
+    {
+      $description = "";
+
+      switch ($d) {
+        case 1:
+        $description = "Country Careful";
+        break;
+        case 2:
+        $description = "Basic Beginning";
+        break;
+        case 3:
+        $description = "Super Singles";
+        break;
+        case 4:
+        $description = "Middle-Grounded";
+        break;
+        case 5:
+        $description = "Living Latin";
+        break;
+        case 6:
+        $description = "Established Elders";
+        break;
+        case 7:
+        $description = "Oozing Optimism";
+        break;
+
+        default:
+        $description = "Unassigned";
+        break;
+      }
+
+      return $description;
+    }
+
+
+    /**
+    *  @param int:
     *  @return int:
     */
     public function setMedianFamilyHouseholdIncome($value = 0)

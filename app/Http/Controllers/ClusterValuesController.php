@@ -124,13 +124,13 @@ class ClusterValuesController extends Controller
     $clusterValue->init($request->d, $request->id, $request->args_array);
     $score = $clusterValue->assignCluster();
 
-    if($score >= 7)
+    if($score <= 7)
     {
-      return response()->json(['status' => 'sucess','value' => $score, 'message' => ""] );
+      return response()->json(['status' => 'sucess','value' => $score, 'message' => $clusterValue->getSegmentDescriptionByD($score)] );
     }
     else
     {
-      return response()->json(['status' => 'failed','value' => $score, 'message' => ""] );
+      return response()->json(['status' => 'failed','value' => $score, 'message' => $clusterValue->getSegmentDescriptionByD($score)] );
     }
   }
 

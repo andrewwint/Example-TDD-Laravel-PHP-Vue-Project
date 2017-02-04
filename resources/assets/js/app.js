@@ -14,7 +14,7 @@ require('./bootstrap');
  */
 
 Vue.component('cluster-table-row', require('./components/ClusterValue.vue'));
-
+Vue.component('score-test', require('./components/TestUserScore.vue'));
 
 const app = new Vue({
   el: '#app',
